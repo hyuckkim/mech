@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraAnimation : MonoBehaviour
 {
     public Animator animator;
+    public int min = -2, max = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,13 @@ public class CameraAnimation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             range += 1;
-            if (range > 1) range = 1;
+            if (range > max) range = max;
             animator.SetInteger("range", range);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             range -= 1;
-            if (range < -1) range = -1;
+            if (range < min) range = min;
             animator.SetInteger("range", range);
         }
     }
